@@ -1,10 +1,10 @@
 # Oladipo Ajibawo
 
-> Project and IT Delivery Manager based in England, UK, with 12+ years delivering IT infrastructure, telecoms, energy and digital transformation programmes in the UK and Nigeria. PMP, PRINCE2 7 Practitioner, ISO/IEC 27001:2022 Lead Auditor, MSc Cyber Security (Distinction, University of Derby). Open to project, IT delivery and cyber GRC roles in the UK and internationally.
+> Senior Project Manager for IT and cybersecurity programmes, based in England, UK, with 12+ years delivering IT infrastructure, telecoms, energy and digital transformation programmes in the UK and Nigeria. PMP, PRINCE2 7 Practitioner, ISO/IEC 27001:2022 Lead Auditor, MSc Cyber Security (Distinction, University of Derby). Open to senior project and programme roles in IT and cybersecurity.
 
 ## Profile
 
-- [Portfolio home](https://oluyemisiajibawo.github.io/OladipoAjibawo.github.io/): experience, projects, certifications, research and contact details
+- [Portfolio home](https://oluyemisiajibawo.github.io/): experience, projects, certifications, research and contact details
 - [LinkedIn](https://linkedin.com/in/ajibawooladipo): full career history and recommendations
 - [GitHub](https://github.com/dipmipaji): research papers and project work
 
@@ -29,8 +29,8 @@
 
 ## Resources
 
-- [Live programme dashboard](https://oluyemisiajibawo.github.io/OladipoAjibawo.github.io/dashboard.html)
-- [Project management template library (Excel)](https://oluyemisiajibawo.github.io/OladipoAjibawo.github.io/PM_Template_Library.xlsx)
+- [Live programme dashboard](https://oluyemisiajibawo.github.io/dashboard.html)
+- [Project management template library (Excel)](https://oluyemisiajibawo.github.io/PM_Template_Library.xlsx)
 
 ## Contact
 
