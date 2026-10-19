@@ -1,0 +1,37 @@
+# Oladipo Ajibawo
+
+> Project and IT Delivery Manager based in England, UK, with 12+ years delivering IT infrastructure, telecoms, energy and digital transformation programmes in the UK and Nigeria. PMP, PRINCE2 7 Practitioner, ISO/IEC 27001:2022 Lead Auditor, MSc Cyber Security (Distinction, University of Derby). Open to project, IT delivery and cyber GRC roles in the UK and internationally.
+
+## Profile
+
+- [Portfolio home](https://oluyemisiajibawo.github.io/OladipoAjibawo.github.io/): experience, projects, certifications, research and contact details
+- [LinkedIn](https://linkedin.com/in/ajibawooladipo): full career history and recommendations
+- [GitHub](https://github.com/dipmipaji): research papers and project work
+
+## Key facts
+
+- Project Manager, Mcjay Recruitment Consultancy (London, Apr 2025 to present): healthcare recruitment pipeline and NHS staffing programme delivery
+- Project Manager, American Tower Corporation (Lagos, Nov 2021 to Feb 2025): 500+ telecoms site modernisation, smart grid and solar rollout across 1,000+ sites
+- PMO and Network Analyst, American Tower Corporation (Lagos, Mar 2017 to Oct 2021): national PMO for 1,500+ tower upgrades, Power BI portfolio reporting
+- IT Project Manager, Scenic International Group (remote, Jun 2014 to Dec 2016): NetSuite ERP, Boomi, Azure and Microsoft 365 delivery
+
+## Credentials
+
+- Project Management Professional (PMP), PMI
+- PRINCE2 7 Foundation and Practitioner, PeopleCert
+- ISO/IEC 27001:2022 Lead Auditor
+- CompTIA Security+ ce; ISC2 Certified in Cybersecurity (CC)
+- MSc Cyber Security (Distinction), University of Derby; MSc Telecommunications Engineering, University of Sunderland; MBA, London School of Commerce; BEng Electrical and Electronics Engineering, University of Ilorin
+
+## Research
+
+- Hybrid deepfake detection framework (EfficientNetV2-S with tri-modal SVM) and enterprise governance; accepted in MDPI Standards, October 2026
+
+## Resources
+
+- [Live programme dashboard](https://oluyemisiajibawo.github.io/OladipoAjibawo.github.io/dashboard.html)
+- [Project management template library (Excel)](https://oluyemisiajibawo.github.io/OladipoAjibawo.github.io/PM_Template_Library.xlsx)
+
+## Contact
+
+- Email: ajibawo.oladipo@gmail.com
