@@ -264,7 +264,11 @@ details.more > summary::-webkit-details-marker { display: none; }
 details.more > summary::after { content: "+"; font-size: 1.1rem; line-height: 1; }
 details.more[open] > summary::after { content: "\2212"; }
 details.more > summary:hover { text-decoration: underline; }
-details.more[open] > .certs-list, details.more[open] > .tk-grid { margin-top: 1rem; }
+details.more[open] > .certs-list, details.more[open] > .tk-grid, details.more[open] > .tk-frame { margin-top: 1rem; }
+.tk-dash .tk-dash-head { margin-bottom: 0; }
+.dash-toggle .dt-open, .dash-toggle[open] .dt-closed { display: none; }
+.dash-toggle[open] .dt-open { display: inline; }
+.dash-toggle > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
 /* ===== Expertise ===== */
 .exp-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
@@ -842,6 +846,8 @@ details.case > summary:hover { text-decoration: underline; }
           </div>
           <a class="tk-open" href="dashboard.html" target="_blank" rel="noopener">Open full dashboard</a>
         </div>
+        <details class="more dash-toggle">
+          <summary><span class="dt-closed">Show the dashboard</span><span class="dt-open">Hide the dashboard</span></summary>
         <div class="tk-frame">
           <iframe
             id="dashFrame"
@@ -852,6 +858,7 @@ details.case > summary:hover { text-decoration: underline; }
             referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </div>
         <p class="tk-frame-note">The full dashboard adds workstream detail and selected outcomes.</p>
+        </details>
       </div>
       <div class="tk-banner tk-lib">
         <div>
