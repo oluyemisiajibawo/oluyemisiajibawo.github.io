@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-8vu7JPBmFieTRgZYxooHaqDpi//mMnwgj8HOBW4m9tk=' 'sha256-pDcrxd//erLngKNhANe/qwtQu0stanRKvtJR1Hw5uNs='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formspree.io; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-8vu7JPBmFieTRgZYxooHaqDpi//mMnwgj8HOBW4m9tk=' 'sha256-2gizLQ02XxM9pG8D6eevsBWzbmWIyqvFpUo5541JuBU='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formspree.io; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -329,6 +329,24 @@ details.more[open] > .certs-list, details.more[open] > .tk-grid { margin-top: 1r
 .tk-dl { font-size: .85rem; font-weight: 700; color: var(--accent-ink); }
 .tk-dl:hover { text-decoration: underline; }
 .tk-note { font-size: .85rem; color: var(--muted); margin-top: 1.2rem; }
+/* Embedded Power BI dashboard */
+.tk-dash, .tk-lib { grid-column: 1 / -1; }
+.tk-dash { justify-content: flex-start; padding: 2rem 2rem 1.6rem; }
+.tk-dash-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
+.tk-dash-head p { margin-bottom: 0; max-width: 40rem; }
+.tk-open { font-size: .88rem; font-weight: 700; color: var(--accent-ink); white-space: nowrap; }
+.tk-open:hover, .tk-open:focus-visible { text-decoration: underline; }
+.tk-frame { position: relative; width: 100%; aspect-ratio: 16 / 9.6; min-height: 420px; background: var(--ink-2); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--r-sm); overflow: hidden; }
+.tk-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+.tk-frame.fit { aspect-ratio: auto; min-height: 0; background: transparent; border: 0; border-radius: 0; }
+.tk-frame.fit iframe { position: static; height: 900px; }
+.tk-frame-note { font-size: .82rem; color: var(--on-ink-muted); margin-top: .8rem; }
+.tk-lib { flex-direction: row; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+.tk-lib p { margin-bottom: 0; max-width: 40rem; }
+@media (max-width: 680px) {
+  .tk-dash { padding: 1.4rem 1.1rem 1.2rem; }
+  .tk-frame { aspect-ratio: 9 / 14; min-height: 480px; }
+}
 
 /* ===== Skills ===== */
 .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
@@ -813,19 +831,33 @@ details.case > summary:hover { text-decoration: underline; }
     <div class="section-header fade">
       <div class="eyebrow">Resources &amp; Templates</div>
       <h2 class="section-h">Project Management Toolkit</h2>
-      <p class="section-sub">A working library of the project controls I use on delivery, plus a live programme dashboard. Open the dashboard or download any template as a ready to use Excel file.</p>
+      <p class="section-sub">A working library of the project controls I use on delivery, plus a live programme dashboard you can explore below. Filter the dashboard by workstream or vendor, or download any template as a ready to use Excel file.</p>
     </div>
     <div class="tk-feature fade">
-      <div class="tk-banner">
-        <h3>Live Programme Dashboard</h3>
-        <p>An interactive view of a multi workstream telecom capital programme: delivery distribution, vendor engagement and site output.</p>
-        <div class="tk-actions">
-          <a class="tk-btn solid" href="dashboard.html" target="_blank" rel="noopener">View Dashboard &rarr;</a>
+      <div class="tk-banner tk-dash">
+        <div class="tk-dash-head">
+          <div>
+            <h3>Live Programme Dashboard</h3>
+            <p>An interactive view of a multi workstream telecom capital programme: delivery distribution, vendor engagement and site output. Hover over any chart for exact figures.</p>
+          </div>
+          <a class="tk-open" href="dashboard.html" target="_blank" rel="noopener">Open full dashboard</a>
         </div>
+        <div class="tk-frame">
+          <iframe
+            id="dashFrame"
+            src="dashboard.html"
+            title="Interactive programme dashboard: telecom capital programme delivery, vendor engagement and site output"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <p class="tk-frame-note">The full dashboard adds workstream detail and selected outcomes.</p>
       </div>
-      <div class="tk-banner" >
-        <h3>Full Template Library</h3>
-        <p>All thirteen project management templates in a single Excel workbook, formatted and ready to use with worked examples.</p>
+      <div class="tk-banner tk-lib">
+        <div>
+          <h3>Full Template Library</h3>
+          <p>All thirteen project management templates in a single Excel workbook, formatted and ready to use with worked examples.</p>
+        </div>
         <div class="tk-actions">
           <a class="tk-btn solid" href="PM_Template_Library.xlsx" download>Download Full Library (.xlsx)</a>
         </div>
@@ -1193,6 +1225,17 @@ themeBtn.addEventListener('click', function() {
   try { localStorage.setItem('theme', next); } catch (e) {}
 });
 
+/* Size the embedded dashboard to its content (it reports its own height). */
+(function() {
+  var f = document.getElementById('dashFrame');
+  if (!f) { return; }
+  window.addEventListener('message', function(e) {
+    if (e.source !== f.contentWindow || e.origin !== window.location.origin) { return; }
+    if (!e.data || e.data.type !== 'dash-height' || typeof e.data.h !== 'number') { return; }
+    f.parentNode.classList.add('fit');
+    f.style.height = Math.min(Math.max(e.data.h, 300), 4000) + 'px';
+  });
+})();
 </script>
 </body>
 </html>

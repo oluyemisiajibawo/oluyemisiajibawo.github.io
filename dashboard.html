@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Capital Programme Dashboard | Oladipo Ajibawo</title>
+<script>if(window.self!==window.top){document.documentElement.classList.add('embedded');}</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
   :root{--blue:#0066cc;--blue2:#0a4d99;--ink:#1d1d1f;--muted:#6e6e73;--line:#e5e5ea;--bg:#f5f5f7;--card:#fff;--teal:#0a9396;--amber:#e8a33d}
@@ -37,6 +38,14 @@
   .ach .r:last-child{border-bottom:none}
   .ach .num{flex:none;width:24px;height:24px;border-radius:7px;background:var(--blue);color:#fff;font-weight:800;font-size:.72rem;display:flex;align-items:center;justify-content:center}
   footer{text-align:center;color:var(--muted);font-size:.74rem;padding:2.4rem 0 3rem}
+  /* Embedded in the portfolio Toolkit panel: navy palette, headline view only */
+  .embedded{--ink:#E6EBF1;--muted:#A9B4C3;--line:#2A3A55;--bg:transparent;--card:#172840;--blue:#22D3EE}
+  .embedded,.embedded body{background:#0F1B2D}
+  .embedded .top,.embedded .sect,.embedded #projGrid,.embedded #achGrid,.embedded footer{display:none}
+  .embedded .wrap{max-width:none;padding:0}
+  .embedded .kpis{margin:0 0 1.2rem}
+  .embedded .grid2+.grid2{margin-bottom:0}
+  @media(max-width:520px){.embedded .chart-box{height:240px}}
 </style>
 </head>
 <body>
@@ -76,12 +85,14 @@
 <footer>Capital programme delivery dashboard &middot; Oladipo Ajibawo</footer>
 
 <script>
-const blue='#0066cc',blue2='#0a4d99',teal='#0a9396',amber='#e8a33d',violet='#7b6cb3',rose='#d9776b';
-Chart.defaults.font.family="-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif";Chart.defaults.font.size=12;Chart.defaults.color='#6e6e73';
+const EMB=document.documentElement.classList.contains('embedded');
+const blue=EMB?'#22D3EE':'#0066cc',blue2=EMB?'#3B82F6':'#0a4d99',teal=EMB?'#2DD4BF':'#0a9396',amber='#e8a33d',violet=EMB?'#A78BFA':'#7b6cb3',rose=EMB?'#F49384':'#d9776b';
+const gridC=EMB?'#24324A':'#eef2f7';
+Chart.defaults.font.family="-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif";Chart.defaults.font.size=12;Chart.defaults.color=EMB?'#A9B4C3':'#6e6e73';
 const ws=[['Power & Energy',221],['New Build & Rollout',147],['Vendor & Procurement',110],['Fiber & Transmission',59],['Site Refurb & Civil',55],['Capitalization',26],['EHS / Safety',25],['Governance',9],['Security',4]];
-new Chart(wsChart,{type:'bar',data:{labels:ws.map(w=>w[0]),datasets:[{data:ws.map(w=>w[1]),backgroundColor:blue,borderRadius:6,barThickness:16}]},options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:'#eef2f7'}},y:{grid:{display:false}}}}});
-new Chart(vendorChart,{type:'bar',data:{labels:['Power','New Build','Procurement','Fiber','Civil','EHS'],datasets:[{data:[25,8,11,5,4,3],backgroundColor:teal,borderRadius:6}]},options:{plugins:{legend:{display:false}},scales:{y:{grid:{color:'#eef2f7'}},x:{grid:{display:false}}}}});
-new Chart(deliveryChart,{type:'bar',data:{labels:['Light Retrofit','Diesel Tanks','Refurbishment','Fiber Splice','Flooded Sites','Civil Upgrade'],datasets:[{data:[162,91,79,63,34,30],backgroundColor:[blue,blue2,teal,amber,violet,rose],borderRadius:6}]},options:{plugins:{legend:{display:false}},scales:{y:{grid:{color:'#eef2f7'}},x:{grid:{display:false}}}}});
+new Chart(wsChart,{type:'bar',data:{labels:ws.map(w=>w[0]),datasets:[{data:ws.map(w=>w[1]),backgroundColor:blue,borderRadius:6,barThickness:16}]},options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:gridC}},y:{grid:{display:false}}}}});
+new Chart(vendorChart,{type:'bar',data:{labels:['Power','New Build','Procurement','Fiber','Civil','EHS'],datasets:[{data:[25,8,11,5,4,3],backgroundColor:teal,borderRadius:6}]},options:{plugins:{legend:{display:false}},scales:{y:{grid:{color:gridC}},x:{grid:{display:false}}}}});
+new Chart(deliveryChart,{type:'bar',data:{labels:['Light Retrofit','Diesel Tanks','Refurbishment','Fiber Splice','Flooded Sites','Civil Upgrade'],datasets:[{data:[162,91,79,63,34,30],backgroundColor:[blue,blue2,teal,amber,violet,rose],borderRadius:6}]},options:{plugins:{legend:{display:false}},scales:{y:{grid:{color:gridC}},x:{grid:{display:false}}}}});
 new Chart(typeChart,{type:'doughnut',data:{labels:['Reports & Records','Documents','Data'],datasets:[{data:[250,131,2],backgroundColor:[blue,amber,teal],borderWidth:0}]},options:{cutout:'62%',plugins:{legend:{position:'bottom'}}}});
 const projects=[
  {t:'Power & Energy Systems',m:'221 work products · 25 vendors',d:'Solar, diesel, battery and metering deployments. Highest volume workstream and centre of vendor coordination.'},
@@ -96,6 +107,12 @@ const projects=[
 projGrid.innerHTML=projects.map(p=>`<div class="pcard"><h3>${p.t}</h3><div class="meta">${p.m}</div><p>${p.d}</p></div>`).join('');
 const ach=['Certified 187 completed site projects in a single month across one region','Coordinated delivery of more than 328 new build sites year to date','Delivered the tower upgrade programme across 461 sites','Oversaw fiber splicing and termination across 63 sites','Delivered light retrofit across 162 sites and refurbishment of 79 sites','Coordinated diesel tank deployment to 91 sites, 54 swapped and installed','5G deployments completed across 209 and 146 sites for two MNOs','Completed flood remediation for 34 sites and 30 civil upgrades','Established EHS governance including plan, risk register and safety guidelines','Coordinated a vendor ecosystem of 26 partner companies'];
 achGrid.innerHTML=ach.map((a,i)=>`<div class="r"><div class="num">${i+1}</div><span>${a}</span></div>`).join('');
+/* Tell the portfolio page how tall this view is, so the frame fits without inner scrolling */
+if(EMB){
+  const tgt=location.origin==='null'?'*':location.origin;
+  const send=()=>parent.postMessage({type:'dash-height',h:Math.ceil(document.querySelector('body>.wrap').getBoundingClientRect().bottom+window.scrollY)},tgt);
+  new ResizeObserver(send).observe(document.body);window.addEventListener('load',send);send();
+}
 </script>
 </body>
 </html>
